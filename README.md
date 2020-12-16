@@ -9,7 +9,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - _etc/ansible/install-elk.yml_
      [File](Images/install-elk.yml)
   - etc/ansible/files/filebeat-playbook.yml
-     [File](images/filebeat-playbook.yml)
+     [File](Images/filebeat-playbook.yml)
   - etc/ansible/files/metricbeat-playbook.yml
      [File](Images/metricbeat-playbook.yml)
 
