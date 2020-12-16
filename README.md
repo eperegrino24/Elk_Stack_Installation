@@ -110,7 +110,7 @@ Open a terminal and SSH into your jump box:
 - Start the Ansible container 
 - SSH into the Ansible container
 
-Copy the provided configuration file for Filebeat to your Ansible container: 
+Copy the provided configuration file for Filebeat to your Ansible container: [Filebeat Config-File](Images/filebeat-configuration.yml)
 
 - Note that when text is copy and pasted from the web into your terminal, formatting differences are likely to occur that will corrupt this configuration file.
 
@@ -140,7 +140,7 @@ host: "10.1.0.4:5601"
     - Choose **System Logs**.
     - Click on the **DEB** tab under **Getting Started** to view the correct Linux Filebeat installation instructions.
 
-  - After entering your information into the Filebeat configuration file and Ansible playbook, you can run the playbok : `ansible-playbook filebeat-playbook.yml`.
+  - After entering your information into the Filebeat configuration file and Ansible playbook, you can run the playbook : `ansible-playbook filebeat-playbook.yml`.
   
 ### Install Metricbeat
 
@@ -151,4 +151,4 @@ From the homepage of your ELK site:
 - Click **Docker Metrics**.
 - Click the **DEB** tab under **Getting Started** for the correct Linux instructions.
 
-Update and copy the provided [Metricbeat config-file] 
+Update and copy the provided [Metricbeat config-file](Images/metricbeat-configuration.yml)
