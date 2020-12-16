@@ -100,3 +100,55 @@ SSH into the control node and follow the steps below:
 - Copy the /install-elk.yml file to the ~/etc/ansible directory.
 - Update the etc/ansible/hosts file to include the Elk Server IP by adding it under the [elk] group to specify which machine to run playbooks on.
 - Run the playbook, and navigate to http://[your.ELK-VM.External.IP]:5601/app/kibana to check that the installation worked as expected.
+
+
+### Creating the Filebeat Configuration 
+
+Create a Filebeat configuration file and edit this file so that it has the correct settings to work with your Elk Server.
+
+Open a terminal and SSH into your jump box: 
+- Start the Ansible container 
+- SSH into the Ansible container
+
+Copy the provided configuration file for Filebeat to your Ansible container: 
+
+- Note that when text is copy and pasted from the web into your terminal, formatting differences are likely to occur that will corrupt this configuration file.
+
+- Using `curl` is a better way to avoid errors and we have the file hosted for public download [HERE](https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat)
+
+- Because we are connecting your webVM's to the ELK server, we need to edit the file to include your ELK server's IP address
+
+Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
+
+```bash
+output.elasticsearch:
+hosts: ["10.1.0.4:9200"]
+username: "elastic"
+password: "changeme"
+```
+
+Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
+
+```
+setup.kibana:
+host: "10.1.0.4:5601"
+```
+### Install Filebeat 
+
+- Open your ELK server homepage.
+    - Click on **Add Log Data**.
+    - Choose **System Logs**.
+    - Click on the **DEB** tab under **Getting Started** to view the correct Linux Filebeat installation instructions.
+
+  - After entering your information into the Filebeat configuration file and Ansible playbook, you can run the playbok : `ansible-playbook filebeat-playbook.yml`.
+  
+### Install Metricbeat
+
+Installation of Metricbeat follows the same process as the Filebeat installation
+
+From the homepage of your ELK site:
+- Click **Add Metric Data**.
+- Click **Docker Metrics**.
+- Click the **DEB** tab under **Getting Started** for the correct Linux instructions.
+
+Update and copy the provided [Metricbeat config-file] 
