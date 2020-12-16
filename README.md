@@ -8,6 +8,9 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - _etc/ansible/install-elk.yml_
      [File](Images/install-elk.yml)
+  - etc/ansible/files/install-filebeat.yml
+  - etc/ansible/files/install-metricbeat.yml
+     [file](Images/install-metricbeat.yml)
 
 This document contains the following details:
 - Description of the Topology
